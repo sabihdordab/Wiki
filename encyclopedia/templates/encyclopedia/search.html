@@ -1,0 +1,20 @@
+{% extends 'encyclopedia/layout.html' %}
+
+{% block title %}
+    Results For {{title}}
+{% endblock %}
+
+{% block body %}
+    <h1  class="entry_title"> similar titles : </h1>
+    <ul>
+        {% for entry_title in titles_list %}
+        <li> <a href="{%url 'encyclopedia:entry' title=entry_title %}">{{entry_title}}</a></li>
+        {% empty %}
+        <div class="container">
+            <div class="alert alert-danger" role="alert">
+                {{title}} Not Found And We Don't Have A Similar Title Too :(
+            </div>
+        </div>
+        {% endfor %}
+    </ul>
+{% endblock%}

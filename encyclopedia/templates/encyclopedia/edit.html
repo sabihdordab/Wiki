@@ -1,0 +1,19 @@
+{% extends 'encyclopedia/layout.html' %}
+
+{% block title %}
+    Edit {{ title }} Page
+{% endblock %}
+
+{% block body %}
+<form action="{% url 'encyclopedia:edit' title=title %}"" method="post">
+    {% csrf_token %}
+    <div class="container">
+        <h1> {{ title }} </h1>
+        {{ form }}
+        <br>
+        <input class= "btn btn-primary" type="submit" value="Publish">
+        <hr>
+        <a href="https://help.github.com/en/github/writing-on-github/basic-writing-and-formatting-syntax">Github Markdown Syntax</a>
+    </div>
+   </form>
+{% endblock %}
