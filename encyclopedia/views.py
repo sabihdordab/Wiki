@@ -65,31 +65,29 @@ def edit(request,title):
     if request.method == "GET":
         content = util.get_entry(title)
         if content == None:
-            messages.add_message(
-                request,
-                messages.ERROR,
-                message=f'{title} not exists !!',
-                )
+            return render(request,"encyclopedia/page_not_found.html", {
+          "title": title
+          })
+        # content not None :
         return render(request, "encyclopedia/edit.html", {
           "title": title,
           "form": Edit_page_content(initial={'content': content })})
 
     elif request.method == "POST" :
         form = Edit_page_content(request.POST)
-        if form.is_valid() and util.get_entry(title) != None :
-          page_content = form.cleaned_data['content']
-          util.save_entry(title, page_content)
-          return HttpResponseRedirect(reverse('encyclopedia:entry', args=[title]))
+        if form.is_valid():
+              page_content = form.cleaned_data['content']
+              util.save_entry(title, page_content)
+              return HttpResponseRedirect(reverse('encyclopedia:entry', args=[title]))
         else:
-          messages.add_message(
-                request,
-                messages.ERROR,
-                message=f'{title} Not Exists Or You Have An Invalid Input!!',
-                )
-          return render(request, "encyclopedia/edit.html", {
-            "title": title,
-            "form": form })
-
+              messages.add_message(
+                    request,
+                    messages.ERROR,
+                    message=' You Have An Invalid Input!!',
+                    )
+              return render(request, "encyclopedia/edit.html", {
+                "title": title,
+                "form": form })
 
 def entry(request,title):
     Entry = util.get_entry(title)
