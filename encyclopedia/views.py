@@ -26,7 +26,7 @@ def index(request):
 
 
 def search(request):
-        title = request.GET.get('q', '')
+        title = request.GET['q']
         if title:
             if util.get_entry(title): #entry exists
                 return HttpResponseRedirect(reverse('encyclopedia:entry', args=[title]))

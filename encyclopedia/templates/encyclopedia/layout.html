@@ -14,7 +14,7 @@
                 <div class="sidebar col-lg-2 col-md-3">
                     <img src="{% static 'encyclopedia/pic/Wikipedia-logo.png' %}" alt="logo">
                     <h2>Wikipedia</h2>
-                    <form action="{% url 'encyclopedia:search' %}">
+                    <form action="{% url 'encyclopedia:search' %}" method="get">
                         <input class="search" type="text" name="q" placeholder="Search Encyclopedia">
                     </form>
                     <div>
