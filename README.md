@@ -9,7 +9,7 @@ In practice, it would start to get tedious if every page on Wikipedia had to be 
 
 Wikipedia happens to use a markup language called Wikitext, but for this project we’ll store encyclopedia entries using a markup language called Markdown.
 
-(GitHub’s Markdown guide)[https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax]
+(GitHub’s Markdown guide)[ https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax ]
 
 
 ### Languages And Technologies :
